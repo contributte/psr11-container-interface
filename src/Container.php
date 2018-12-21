@@ -32,6 +32,9 @@ class Container implements ContainerInterface
 	public function get($id)
 	{
 		try {
+			if (class_exists($id)) {
+				return $this->container->getByType($id);
+			}
 			return $this->container->getService($id);
 		} catch (MissingServiceException $e) {
 			throw new ServiceNotFoundException($e);
@@ -52,6 +55,9 @@ class Container implements ContainerInterface
 	 */
 	public function has($id): bool
 	{
+		if (class_exists($id)) {
+			return $this->container->getByType($id, false) !== null;
+		}
 		return $this->container->hasService($id);
 	}
 

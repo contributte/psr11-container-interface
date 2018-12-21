@@ -35,4 +35,12 @@ test(function (): void {
 	Assert::exception(function () use ($psr11Container): void {
 		$psr11Container->get('missing');
 	}, NotFoundExceptionInterface::class);
+
+	Assert::true($psr11Container->has(Container::class));
+	Assert::false($psr11Container->has(Foo::class));
+
+	Assert::same($container, $psr11Container->get(Container::class));
+	Assert::exception(function () use ($psr11Container): void {
+		$psr11Container->get(Foo::class);
+	}, NotFoundExceptionInterface::class);
 });
