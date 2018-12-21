@@ -13,7 +13,7 @@ Register extension:
 
 ```yaml
 extensions:
-    psr11: Contributte\Psr11\Container\Psr11ContainerExtension
+    psr11: Contributte\Psr11\DI\Psr11ContainerExtension
 ```
 ## Usage
 
