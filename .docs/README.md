@@ -39,6 +39,14 @@ class YourService
         }
     }
 
+    private function workWithServiceOfType(): void
+    {
+        if($this->container->has(YourAnotherService::class)) {
+            /** @var YourAnotherService $service */
+            $service = $this->container->get(YourAnotherService::class);
+        }
+    }
+
 }
 
 ```
