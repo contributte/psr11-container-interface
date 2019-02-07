@@ -9,6 +9,7 @@ use Contributte\Psr11\DI\Psr11ContainerExtension;
 use Nette\DI\Compiler;
 use Nette\DI\Container;
 use Nette\DI\ContainerLoader;
+use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Tester\Assert;
 
@@ -37,9 +38,11 @@ test(function (): void {
 	}, NotFoundExceptionInterface::class);
 
 	Assert::true($psr11Container->has(Container::class));
+	Assert::true($psr11Container->has(ContainerInterface::class));
 	Assert::false($psr11Container->has(Foo::class));
 
 	Assert::same($container, $psr11Container->get(Container::class));
+	Assert::same($psr11Container, $psr11Container->get(ContainerInterface::class));
 	Assert::exception(function () use ($psr11Container): void {
 		$psr11Container->get(Foo::class);
 	}, NotFoundExceptionInterface::class);
