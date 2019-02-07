@@ -10,7 +10,7 @@
 [![Downloads this Month](https://img.shields.io/packagist/dm/contributte/psr11-container-interface.svg?style=flat-square)](https://packagist.org/packages/contributte/psr11-container-interface)
 [![Downloads total](https://img.shields.io/packagist/dt/contributte/psr11-container-interface.svg?style=flat-square)](https://packagist.org/packages/contributte/psr11-container-interface)
 [![Latest stable](https://img.shields.io/packagist/v/contributte/psr11-container-interface.svg?style=flat-square)](https://packagist.org/packages/contributte/psr11-container-interface)
-[![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat)](https://github.com/phpstan/phpstan)
+[![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
 
 ## Discussion / Help
 
