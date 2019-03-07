@@ -18,8 +18,8 @@
   ],
   "require": {
     "php": ">= 7.1",
-    "nette/di": "~2.4.13",
-    "nette/utils": "~2.5.2",
+    "nette/di": "~2.4.13 || ~3.0.0",
+    "nette/utils": "~2.5.2 || ~3.0.0",
     "psr/container": "^1.0.0"
   },
   "require-dev": {
