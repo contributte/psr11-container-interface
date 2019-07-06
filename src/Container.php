@@ -9,16 +9,8 @@ use Nette\DI\MissingServiceException;
 use Psr\Container\ContainerInterface;
 use Throwable;
 
-class Container implements ContainerInterface
+class Container extends NetteContainer implements ContainerInterface
 {
-
-	/** @var NetteContainer */
-	private $container;
-
-	public function __construct(NetteContainer $container)
-	{
-		$this->container = $container;
-	}
 
 	/**
 	 * Finds an entry of the container by its identifier and returns it.
@@ -33,9 +25,9 @@ class Container implements ContainerInterface
 	{
 		try {
 			if (class_exists($id) || interface_exists($id)) {
-				return $this->container->getByType($id);
+				return $this->getByType($id);
 			}
-			return $this->container->getService($id);
+			return $this->getService($id);
 		} catch (MissingServiceException $e) {
 			throw new ServiceNotFoundException($e);
 		} catch (Throwable $e) {
@@ -56,9 +48,9 @@ class Container implements ContainerInterface
 	public function has($id): bool
 	{
 		if (class_exists($id) || interface_exists($id)) {
-			return $this->container->getByType($id, false) !== null;
+			return $this->getByType($id, false) !== null;
 		}
-		return $this->container->hasService($id);
+		return $this->hasService($id);
 	}
 
 }

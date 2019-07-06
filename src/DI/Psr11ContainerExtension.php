@@ -4,15 +4,14 @@ namespace Contributte\Psr11\DI;
 
 use Contributte\Psr11\Container;
 use Nette\DI\CompilerExtension;
+use Nette\PhpGenerator\ClassType;
 
 class Psr11ContainerExtension extends CompilerExtension
 {
 
-	public function loadConfiguration(): void
+	public function afterCompile(ClassType $class): void
 	{
-		$builder = $this->getContainerBuilder();
-		$builder->addDefinition($this->prefix('container'))
-			->setType(Container::class);
+		$class->setExtends(Container::class);
 	}
 
 }
