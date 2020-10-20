@@ -3,6 +3,7 @@ php:
   - 7.1
   - 7.2
   - 7.3
+  - 7.4
 
 before_install:
   # Turn off XDebug
@@ -30,18 +31,18 @@ jobs:
         - composer run-script tests
 
     - stage: Quality Assurance
-      php: 7.1
+      php: 7.4
       script:
         - composer run-script qa
 
     - stage: Phpstan
-      php: 7.1
+      php: 7.4
       script:
         - composer run-script phpstan
 
     - stage: Test Coverage
       if: branch = master AND type = push
-      php: 7.1
+      php: 7.4
       script:
         - composer run-script coverage
       after_script:
@@ -50,9 +51,9 @@ jobs:
 
     - stage: Outdated Dependencies
       if: branch = master AND type = cron
-      php: 7.1
+      php: 7.4
       script:
-        - composer outdated --direct --strict
+        - composer outdated --direct
 
   allow_failures:
     - stage: Test Coverage
