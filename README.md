@@ -19,7 +19,7 @@
 ## Install
 
 ```
-composer require contributte/psr11-container-interface
+$ composer require contributte/psr11-container-interface
 ```
 
 ## Versions
