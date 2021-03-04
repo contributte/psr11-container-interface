@@ -18,8 +18,8 @@
 
 ## Install
 
-```
-$ composer require contributte/psr11-container-interface
+```bash
+composer require contributte/psr11-container-interface
 ```
 
 ## Versions
