@@ -11,9 +11,9 @@
 
 Register extension:
 
-```yaml
+```neon
 extensions:
-    psr11: Contributte\Psr11\DI\Psr11ContainerExtension
+	psr11: Contributte\Psr11\DI\Psr11ContainerExtension
 ```
 ## Usage
 
@@ -23,29 +23,29 @@ use Psr\Container\ContainerInterface;
 class YourService
 {
 
-    /** @var ContainerInterface $container */
-    private $container;
+	/** @var ContainerInterface $container */
+	private $container;
 
-    public function __construct(ContainerInterface $container)
-    {
-        $this->container = $container;
-    }
+	public function __construct(ContainerInterface $container)
+	{
+		$this->container = $container;
+	}
 
-    private function workWithService(): void
-    {
-        if($this->container->has('serviceName')) {
-            /** @var YourAnotherService $service */
-            $service = $this->container->get('serviceName');
-        }
-    }
+	private function workWithService(): void
+	{
+		if($this->container->has('serviceName')) {
+			/** @var YourAnotherService $service */
+			$service = $this->container->get('serviceName');
+		}
+	}
 
-    private function workWithServiceOfType(): void
-    {
-        if($this->container->has(YourAnotherService::class)) {
-            /** @var YourAnotherService $service */
-            $service = $this->container->get(YourAnotherService::class);
-        }
-    }
+	private function workWithServiceOfType(): void
+	{
+		if($this->container->has(YourAnotherService::class)) {
+			/** @var YourAnotherService $service */
+			$service = $this->container->get(YourAnotherService::class);
+		}
+	}
 
 }
 
