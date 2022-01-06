@@ -19,15 +19,15 @@
   "require": {
     "php": ">= 7.2",
     "nette/di": "^3.0.8",
-    "psr/container": "^1.0.0"
+    "psr/container": "^1.0|^2.0"
   },
   "require-dev": {
     "ninjify/qa": "^0.12",
     "ninjify/nunjuck": "^0.4",
-    "phpstan/phpstan": "^0.12.85",
-    "phpstan/phpstan-deprecation-rules": "^0.12",
-    "phpstan/phpstan-nette": "^0.12",
-    "phpstan/phpstan-strict-rules": "^0.12"
+    "phpstan/phpstan": "^1.0",
+    "phpstan/phpstan-deprecation-rules": "^1.0",
+    "phpstan/phpstan-nette": "^1.0",
+    "phpstan/phpstan-strict-rules": "^1.0"
   },
   "autoload": {
     "psr-4": {
