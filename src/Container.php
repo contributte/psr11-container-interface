@@ -12,8 +12,7 @@ use Throwable;
 class Container implements ContainerInterface
 {
 
-	/** @var NetteContainer */
-	private $container;
+	private NetteContainer $container;
 
 	public function __construct(NetteContainer $container)
 	{
@@ -29,7 +28,7 @@ class Container implements ContainerInterface
 	 * @return mixed Entry.
 	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
 	 */
-	public function get($id)
+	public function get(string $id): mixed
 	{
 		try {
 			if (class_exists($id) || interface_exists($id)) {
@@ -54,7 +53,7 @@ class Container implements ContainerInterface
 	 * @param string $id Identifier of the entry to look for.
 	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
 	 */
-	public function has($id): bool
+	public function has(string $id): bool
 	{
 		if (class_exists($id) || interface_exists($id)) {
 			return $this->container->getByType($id, false) !== null;
