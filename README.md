@@ -18,17 +18,7 @@
 Website 🚀 <a href="https://contributte.org">contributte.org</a> | Contact 👨🏻‍💻 <a href="https://f3l1x.io">f3l1x.io</a> | Twitter 🐦 <a href="https://twitter.com/contributte">@contributte</a>
 </p>
 
-## Usage
-
-To install the latest version of `contributte/psr11-container-interface` use [Composer](https://getcomposer.org).
-
-```bash
-composer require contributte/psr11-container-interface
-```
-
-## Documentation
-
-For details on how to use this package, check out our [documentation](.docs).
+PSR-11 Container Interface wraps [`nette/di`](https://github.com/nette/di) containers into a [PSR-11](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-11-container.md) compatible container implementation.
 
 ## Versions
 
@@ -37,11 +27,63 @@ For details on how to use this package, check out our [documentation](.docs).
 | dev         | `^0.7`  | `master` | `>=7.2` |
 | stable      | `^0.6`  | `master` | `>=7.2` |
 
+## Installation
+
+To install the latest version of `contributte/psr11-container-interface` use [Composer](https://getcomposer.org).
+
+```bash
+composer require contributte/psr11-container-interface
+```
+
+## Configuration
+
+Register extension:
+
+```neon
+extensions:
+	psr11: Contributte\Psr11\DI\Psr11ContainerExtension
+```
+
+## Usage
+
+```php
+use Psr\Container\ContainerInterface;
+
+class YourService
+{
+
+	/** @var ContainerInterface $container */
+	private $container;
+
+	public function __construct(ContainerInterface $container)
+	{
+		$this->container = $container;
+	}
+
+	private function workWithService(): void
+	{
+		if ($this->container->has('serviceName')) {
+			/** @var YourAnotherService $service */
+			$service = $this->container->get('serviceName');
+		}
+	}
+
+	private function workWithServiceOfType(): void
+	{
+		if ($this->container->has(YourAnotherService::class)) {
+			/** @var YourAnotherService $service */
+			$service = $this->container->get(YourAnotherService::class);
+		}
+	}
+
+}
+```
+
 ## Development
 
 See [how to contribute](https://contributte.org/contributing.html) to this package.
 
-This package is currently maintaining by these authors.
+This package is currently maintained by these authors.
 
 <a href="https://github.com/f3l1x">
     <img width="80" height="80" src="https://avatars.githubusercontent.com/f3l1x">
